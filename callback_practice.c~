@@ -1,0 +1,18 @@
+#include<stdio.h>
+typedef void (*fist_func)(void);
+
+void main()
+{
+  void first_func()
+  {
+    printf("Hello");
+  }
+  void call_twice(first_func)
+  {
+    printf("calling the first time");
+    first_func();
+    printf("Calling the second time");
+    first_func();
+  }
+
+  
