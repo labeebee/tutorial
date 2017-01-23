@@ -1,37 +1,30 @@
 #include<stdio.h>
-void first_func(void);
-void sec_func(char);
-void call_twice(void(*)(char));
-  
-void main()
+
+// function prototypes
+void sec_func(int);
+void call_twice(void (*fuction)(int), int);
+
+
+// function definition
+void sec_func(int a)
 {
-  char data = 'L';
-  call_twice(sec_func(data));
+  printf("This is fun with argument %d\n",a);
 }
 
-//void first_func()
-// {
-//   printf("Hello\n");
-// }
-
-void sec_func(char abc)
-{
-  printf("This is fun with arguments %s\n",abc);
-}
-
-//void call_twice(void abc(void))
-// {
-//  printf("Calling the first time\n");
-//  abc();
-//  printf("Calling the second time\n");
-//  abc();
-//}
-
-void call_twice(void abc(char xyz))
+void call_twice(void (*abc)(int ), int a)
   {
+    
     printf("Calling the first time\n");
-    abc(xyz);
+    abc(a);
     printf("Calling the second time\n");
-    abc(xyz);
+    abc(a);
   }
 
+
+// main
+int main()
+{
+  int a = 3;
+  call_twice(sec_func(a), a);
+  return 0;
+}
