@@ -15,9 +15,9 @@ void call_twice(void (*abc)(int ), int a)
   {
     
     printf("Calling the first time\n");
-    abc(a);
+    (*abc)(a);
     printf("Calling the second time\n");
-    abc(a);
+    (*abc)(a);
   }
 
 
@@ -25,6 +25,6 @@ void call_twice(void (*abc)(int ), int a)
 int main()
 {
   int a = 3;
-  call_twice(sec_func(a), a);
+  call_twice(sec_func, a);
   return 0;
 }
